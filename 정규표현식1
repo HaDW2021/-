@@ -1,0 +1,15 @@
+# Greedy vs Non-Greedy
+# * 메타 문자는 매우 탐욕스러워서 매치할 수 있는 최대한의 문자열인 <html><head><title>Title</title> 문자열을 모두 소비
+# non-greedy 문자인 ?는 *의 탐욕을 제한하여 최소한의 반복을 수행. *?, +?, ??, {m,n}?와 같이 사용
+s = '<html><head><title>Title</title>'
+print(s)
+print()
+print(len(s)) # <, >, / 같은 것까지 다 센다.
+print()
+print(re.match('<.*>', s).span()) # . 을 써서 다 나눴네
+print()
+print(re.match('<.*>', s).group())
+print()
+print(re.match('<.*?>', s).group())
+print()
+print(re.match('<.*?>', s).span()) # 첫 < ~ > 가 <html>이니까 6글자다.
